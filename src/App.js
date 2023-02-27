@@ -19,6 +19,24 @@ function App() {
     numColor : "#FF2442",
     boolColor : "#4E89AE"
   }
+
+  const handleError = (err)=>{
+    const positionRegex = /at position (\d+)/i;
+      const matches = positionRegex.exec(err.message);
+      setError(prev=>{
+        return {
+          ...prev,
+          error: true,
+          message: err.message
+        }
+      });
+      if(!matches){
+        return;
+      }
+      const position = parseInt(matches[1]);
+      console.log(matches);
+      setInput(input.substring(0, position)+'⬅️'+input.substring(position));
+  }
   const handleBeautify = () =>{
     try{
       const keyPattern = /"(\w+)":/g;
@@ -40,21 +58,17 @@ function App() {
       output.innerHTML = jsonData;
 
     }catch(err){
-      const positionRegex = /at position (\d+)/i;
-      const matches = positionRegex.exec(err.message);
-      setError(prev=>{
-        return {
-          ...prev,
-          error: true,
-          message: err.message
-        }
-      });
-      if(!matches){
-        return;
-      }
-      const position = parseInt(matches[1]);
-      console.log(matches);
-      setInput(input.substring(0, position)+'⬅️'+input.substring(position));
+      handleError(err);
+    }
+  }
+  const handleMinify = () =>{
+    try{
+      const jsonSData = JSON.parse(input);
+      const jsonData = JSON.stringify(jsonSData);
+      const output = document.getElementById("JSON-OUTPUT");
+      output.innerHTML = jsonData;
+    }catch(err){
+      handleError(err); 
     }
   }
   return (
@@ -81,7 +95,7 @@ function App() {
           <div className='col-12 col-md-2 d-flex justify-content-center align-items-center'>
             <div className="d-flex flex-md-column flex-row">
               <button className='btn btn-success m-1' onClick={()=>{handleBeautify()}}>Beautify</button>
-              <button className='btn btn-primary m-1'>Minify</button>
+              <button className='btn btn-primary m-1' onClick={()=>{ handleMinify()}}>Minify</button>
             </div>
           </div>
           <div className='col-12 col-md-5 p-3'>
