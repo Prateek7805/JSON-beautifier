@@ -6,7 +6,7 @@ export default function ({state}) {
             <textarea className='form-control' 
                         placeholder='Input your JSON here' 
                         id="JSON-TEXTBOX" 
-                        style={{ width: '100%', height: '90vh', resize: "none" }}
+                        
                         value={input}
                         onChange={(e)=>{setInput(e.target.value)}}
                         />

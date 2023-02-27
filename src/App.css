@@ -36,6 +36,11 @@ body::-webkit-scrollbar-thumb:hover {
 
 
 /*form-control */
+.form-control{
+  width: 100%;
+  height: 90vh !important;
+  resize: none;
+}
 .form-control::-webkit-scrollbar {
   width: var(--sc-width);
 }
@@ -56,4 +61,10 @@ body::-webkit-scrollbar-thumb:hover {
 .form-control::-webkit-scrollbar-thumb:hover {
   background: var(--sc-track-hover-color); 
   transform: scale(1.2);
+}
+
+@media(max-width: 768px){
+  .form-control{
+    height: 60vh !important;
+  }
 }
