@@ -8,7 +8,27 @@ import {useState} from 'react';
 import {Button, Modal} from 'react-bootstrap';
 function App() {
 
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState(`{
+    "string": "Hello, World!",
+    "number": 42,
+    "boolean": true,
+    "null": null,
+    "array": [
+      "apple",
+      "banana",
+      "cherry"
+    ],
+    "object": {
+      "name": "John Smith",
+      "age": 30,
+      "address": {
+        "street": "123 Main St",
+        "city": "Anytown",
+        "state": "CA",
+        "zip": "12345"
+      }
+    }
+  }`);
   const [error, setError] = useState({
     error: false,
     message: ""
