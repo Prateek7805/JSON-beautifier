@@ -114,8 +114,8 @@ function App() {
           </div>
           <div className='col-12 col-md-2 d-flex justify-content-center align-items-center'>
             <div className="d-flex flex-md-column flex-row">
-              <button className='btn btn-success m-1' onClick={()=>{handleBeautify()}}>Beautify</button>
-              <button className='btn btn-primary m-1' onClick={()=>{ handleMinify()}}>Minify</button>
+              <button className='btn btn-primary m-1' style={{backgroundColor: '#FD8C04', borderColor: '#FD8C04'}} onClick={()=>{handleBeautify()}}>Beautify</button>
+              <button className='btn btn-primary m-1' style={{backgroundColor: '#1B262C', borderColor : '#1B262C'}} onClick={()=>{ handleMinify()}}>Minify</button>
             </div>
           </div>
           <div className='col-12 col-md-5 p-3'>
