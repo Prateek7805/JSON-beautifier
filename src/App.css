@@ -64,6 +64,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @media(max-width: 768px){
+  .App{
+    width: 100vw;
+  }
   .form-control{
     height: 60vh !important;
   }
