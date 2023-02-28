@@ -55,7 +55,7 @@ function App() {
     try{
       const keyPattern = /"(\w+)":/g;
       const stringValuePattern = /: "(.*)"/g;
-      const numberValuePattern = /: (\d+)/g;
+      const numberValuePattern = /: ([\d\.]+)/g;
       const booleanValuePattern = /: (true|false)/g;
       const breakPattern = /\n/g;
       const jsonSData = JSON.parse(input);
